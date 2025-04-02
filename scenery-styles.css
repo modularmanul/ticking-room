@@ -1,0 +1,172 @@
+/* Window styles */
+.window {
+  /* Window with hover effect */
+  position: absolute;
+  left: -20%;
+  transform-origin: right center;
+  transition: transform 2s ease;
+  transform: rotateY(70deg) translateZ(var(--z-translation));
+  width: 300px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.window .frame {
+  position: relative;
+  min-width: 150px;
+  min-height: 250px;
+  float: left;
+  border: 10px solid var(--primary-brown);
+}
+
+.window:hover {
+  transform: translateX(40%) rotateY(0deg) translateZ(0px) scale(1.5);
+}
+
+/* Sky styles */
+.sky {
+  /* Sky background with day-night transition animation */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: nightsky 10s ease-in-out infinite alternate;
+  background: radial-gradient(
+    circle at top left,
+    var(--yellow-primary),
+    var(--yellow-secondary) 25%,
+    var(--blue-light) 50%,
+    var(--blue-light)
+  );
+}
+
+@keyframes nightsky {
+  0% {
+    background: radial-gradient(
+      circle at top left,
+      var(--yellow-primary),
+      var(--yellow-secondary) 25%,
+      var(--blue-light) 50%,
+      var(--blue-light)
+    );
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    background: radial-gradient(
+      circle at top,
+      var(--beige-light),
+      var(--beige-dark) 25%,
+      var(--gray-medium) 50%,
+      var(--gray-dark)
+    );
+    opacity: 0.4;
+    filter: brightness(0.4);
+  }
+  100% {
+    background: radial-gradient(
+      circle at top left,
+      var(--gray-light),
+      var(--gray-medium) 25%,
+      var(--gray-dark) 50%,
+      var(--gray-darker)
+    );
+    opacity: 0.6;
+    filter: brightness(0.6);
+  }
+}
+
+/* Sun styles */
+.sun {
+  /* Sun element with animation */
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 15%;
+  left: 12%;
+  background: radial-gradient(
+    var(--sun-core),
+    var(--sun-core) 40%,
+    var(--yellow-secondary) 70%,
+    var(--yellow-secondary)
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px var(--yellow-secondary);
+  animation: sunset 10s ease-in-out infinite alternate;
+}
+
+@keyframes sunset {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(500%);
+  }
+}
+
+/* Moon styles */
+.moon {
+  /* Moon element with animation */
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 10px 10px 5px 5px var(--white);
+  animation: moonrise 10s ease-in-out infinite alternate;
+}
+
+@keyframes moonrise {
+  0% {
+    transform: translateX(-500%);
+  }
+  100% {
+    transform: translateX(10%);
+  }
+}
+
+/* Rainbow styles */
+.rainbow {
+  /* Rainbow with fading animation */
+  height: 120%;
+  width: 100%;
+  position: absolute;
+  background: radial-gradient(
+    circle at bottom right,
+    transparent,
+    transparent 38%,
+    var(--rainbow-purple) 40%,
+    var(--rainbow-purple) 41%,
+    var(--rainbow-blue) 42%,
+    var(--rainbow-blue) 43%,
+    var(--rainbow-cyan) 44%,
+    var(--rainbow-cyan) 45%,
+    var(--rainbow-green) 46%,
+    var(--rainbow-green) 47%,
+    var(--rainbow-yellow) 48%,
+    var(--rainbow-yellow) 49%,
+    var(--rainbow-orange) 50%,
+    var(--rainbow-orange) 51%,
+    var(--rainbow-red) 52%,
+    var(--rainbow-red) 53%,
+    transparent 55%,
+    transparent
+  );
+  filter: blur(10px);
+  animation: rainbow 10s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes rainbow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+  }
+}

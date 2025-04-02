@@ -1,0 +1,174 @@
+:root {
+  /* Neutral colors */
+  --white: rgb(235, 235, 235);
+  --dark-gray: rgb(50, 50, 50);
+  --darker-gray: rgb(25, 25, 25);
+  --neutral-black: rgb(24, 16, 1);
+  --neutral-gray: rgb(38, 38, 38);
+  --neutral-light-gray: rgb(205, 205, 205);
+  --shadow-gray: rgb(113, 113, 113);
+
+  /* Brown tones */
+  --medium-brown: rgb(168, 107, 16);
+  --wood-dark: rgb(59, 38, 7);
+  --primary-brown: rgb(90, 59, 21);
+  --secondary-brown: rgb(61, 39, 24);
+  --highlight-brown: rgb(205, 168, 114);
+
+  /* Gradient colors */
+  --gradient-light: rgb(183, 144, 86);
+  --gradient-medium: rgb(188, 140, 69);
+  --gradient-dark: rgb(71, 45, 0);
+  --gradient-highlight: rgb(225, 180, 111);
+
+  /* String colors */
+  --string-1: rgb(159, 121, 35);
+  --string-2: rgb(180, 144, 58);
+  --string-3: rgb(187, 157, 86);
+  --string-4: rgb(160, 145, 112);
+  --string-5: rgb(172, 160, 135);
+  --string-6: rgb(232, 232, 230);
+
+  /* Clock and pendulum colors */
+  --octagon-border: 100px;
+  --clock-primary-color: rgb(47, 33, 12);
+  --clock-secondary-color: rgb(242, 227, 206);
+  --striped-color: repeating-linear-gradient(
+    90deg,
+    var(--clock-primary-color),
+    var(--clock-primary-color) 5%,
+    var(--clock-secondary-color) 6%,
+    var(--clock-secondary-color) 10%
+  );
+
+  /* Scenery colors */
+  --yellow-primary: rgb(255, 207, 51);
+  --yellow-secondary: rgb(255, 255, 102);
+  --blue-light: rgb(206, 243, 255);
+  --beige-light: rgb(229, 205, 128);
+  --beige-dark: rgb(202, 202, 126);
+  --gray-light: rgb(204, 204, 204);
+  --gray-medium: rgb(150, 150, 150);
+  --gray-dark: rgb(68, 68, 85);
+  --gray-darker: rgb(34, 34, 51);
+  --sun-core: rgb(255, 203, 33);
+  --rainbow-purple: #e19fff;
+  --rainbow-blue: #846efc;
+  --rainbow-cyan: #5dd3f4;
+  --rainbow-green: #8ff996;
+  --rainbow-yellow: #fff870;
+  --rainbow-orange: #ffbc6a;
+  --rainbow-red: #fa7355;
+  --white: #ffffff;
+
+  /* Canvas colors */
+  --color-white: #ffffff;
+  --color-light-gray: #f3f3f3;
+  --color-gray: #dbdbde;
+  --color-dark-gray: #3a3a3a;
+  --color-blush-pink: #ffd1c4;
+  --color-light-pink: #eab8c4;
+  --color-dark-pink: #fe9797;
+  --color-light-brown: #edca9a;
+  --color-medium-brown: #e0b475;
+  --color-deepest-brown: #472d00;
+  --color-background-gradient-start: rgb(245, 238, 206);
+  --color-background-gradient-mid: rgb(232, 197, 145);
+  --color-background-gradient-dark: rgb(188, 140, 69);
+
+  /* Transition */
+  --z-translation: -400px;
+  transition: all 10s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  /* Universal box-sizing and reset */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Fullscreen layout with overflow hidden */
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Wallpoet', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+header {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 2%;
+  z-index: 1;
+  margin-bottom: 20%;
+}
+
+header h1 {
+  font-family: 'Nosifer', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
+
+p {
+  font-family: 'Wallpoet', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 2%;
+  text-align: center;
+  z-index: 1;
+}
+
+main {
+  /* 3D perspective and animations for the room */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  animation: nightroom 10s ease-in-out infinite alternate,
+    darken 10s ease-in-out infinite alternate;
+}
+
+@keyframes darken {
+  /* Animation to simulate dimming light */
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(0.5);
+  }
+}
+
+@keyframes nightroom {
+  /* Animation to transition between day and night room styles */
+  0% {
+    background-color: #ffffff;
+    border-bottom: 30vh solid #e8e8e8;
+    border-left: 30vw solid #f0f0f0;
+    border-right: 30vw solid #f0f0f0;
+  }
+  100% {
+    background-color: #7d7d7d;
+    border-bottom: 30vh solid #5b5b5b;
+    border-left: 30vw solid #989898;
+    border-right: 30vw solid #989898;
+  }
+}

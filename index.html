@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore the interactive Ticking Room with a clock, guitar, and creative elements like a painting and window scenery."
+    />
+    <meta
+      name="keywords"
+      content="Ticking Room, interactive, clock, guitar, painting, window scenery"
+    />
+    <meta name="author" content="Modular Manul" />
+    <title>Ticking Room</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="scenery-styles.css" />
+    <link rel="stylesheet" href="canvas-styles.css" />
+    <link rel="stylesheet" href="guitar-styles.css" />
+    <link rel="stylesheet" href="pendulum-styles.css" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Astloch:wght@400;700&family=Nosifer&family=Wallpoet&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>Ticking Room</h1>
+      <p>Explore by moving your mouse around or clicking.</p>
+    </header>
+    <main onmouseover="playTicktockAudio()">
+      <div class="clock" onclick="playChimeAudio()">
+        <audio id="ticktockAudio" loop muted>
+          <source src="audio/ticktock.wav" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio id="chimeAudio" muted>
+          <source src="audio/chime.flac" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <div class="finial"></div>
+
+        <div class="crown">
+          <div class="top">
+            <div class="triangle-left">^</div>
+            <h1>Pendulumuludnep</h1>
+            <div class="triangle-right">^</div>
+          </div>
+          <div class="bottom"></div>
+        </div>
+
+        <div class="head">
+          <div class="frame">
+            <div class="outer"></div>
+            <div class="inner"></div>
+          </div>
+
+          <div class="face">
+            <div class="hour-mark-twelve">XII</div>
+            <div class="hour-mark-three">III</div>
+            <div class="hour-mark-six">VI</div>
+            <div class="hour-mark-nine">IX</div>
+            <div class="hour-hand"></div>
+            <div class="minute-hand"></div>
+            <div class="second-hand"></div>
+            <div class="inner"></div>
+          </div>
+        </div>
+
+        <div class="pendulum">
+          <div class="rod"></div>
+          <div class="weight"></div>
+        </div>
+
+        <div class="body">
+          <div class="panel left"></div>
+          <div class="panel right"></div>
+          <div class="back"></div>
+          <div class="base front">
+            <p>tick tock</p>
+          </div>
+          <div class="base back"></div>
+        </div>
+      </div>
+      <div class="window">
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="frame"></div>
+        <div class="sky">
+          <div class="rainbow"></div>
+          <div class="sun"></div>
+          <div class="moon"></div>
+        </div>
+      </div>
+      <div class="door"></div>
+      <div class="guitar">
+        <div class="guitar-neck"></div>
+        <div class="guitar-upper-bout"></div>
+        <div class="guitar-pick-guard"></div>
+        <div class="guitar-sound-hole-outer">
+          <div class="guitar-sound-hole-inner">
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute01.mp3')"
+            ></div>
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute02.mp3')"
+            ></div>
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute03.mp3')"
+            ></div>
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute04.mp3')"
+            ></div>
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute05.mp3')"
+            ></div>
+            <div
+              class="guitar-string"
+              onmouseenter="play('https://raw.githubusercontent.com/212mr/m15final/master/music/lute06.mp3')"
+            ></div>
+          </div>
+        </div>
+        <div class="guitar-sadle"><div class="bridge"></div></div>
+        <div class="guitar-rings">
+          <div class="guitar-ring"></div>
+          <div class="guitar-ring"></div>
+          <div class="guitar-ring"></div>
+          <div class="guitar-ring"></div>
+          <div class="guitar-ring"></div>
+          <div class="guitar-ring"></div>
+        </div>
+        <div class="guitar-lower-bout"></div>
+      </div>
+      <div class="canvas-frame">
+        <div class="canvas">
+          <div class="painting">
+            <div class="cat-head">
+              <div class="cat-ears">
+                <div class="cat-left-ear">
+                  <div class="cat-left-inner-ear"></div>
+                </div>
+                <div class="cat-right-ear">
+                  <div class="cat-right-inner-ear"></div>
+                </div>
+              </div>
+
+              <div class="cat-eyes">
+                <div class="cat-left-eye">
+                  <div class="cat-left-inner-eye"></div>
+                </div>
+                <div class="cat-right-eye">
+                  <div class="cat-right-inner-eye"></div>
+                </div>
+              </div>
+
+              <div class="cat-nose"></div>
+              <div class="blush-left"></div>
+              <div class="blush-right"></div>
+              <div class="cat-mouth">
+                <div class="cat-mouth-line-left"></div>
+                <div class="cat-mouth-line-right"></div>
+              </div>
+
+              <div class="cat-whiskers">
+                <div class="cat-whiskers-left">
+                  <div class="cat-whisker-left-top"></div>
+                  <div class="cat-whisker-left-middle"></div>
+                  <div class="cat-whisker-left-bottom"></div>
+                </div>
+                <div class="cat-whiskers-right">
+                  <div class="cat-whisker-right-top"></div>
+                  <div class="cat-whisker-right-middle"></div>
+                  <div class="cat-whisker-right-bottom"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ferret-head">
+              <div class="ferret-ears">
+                <div class="ferret-left-ear">
+                  <div class="ferret-left-inner-ear"></div>
+                </div>
+                <div class="ferret-right-ear">
+                  <div class="ferret-right-inner-ear"></div>
+                </div>
+              </div>
+
+              <div class="ferret-eyes">
+                <div class="ferret-left-eye">
+                  <div class="ferret-left-inner-eye-1"></div>
+                  <div class="ferret-left-inner-eye-2"></div>
+                </div>
+                <div class="ferret-right-eye">
+                  <div class="ferret-right-inner-eye-1"></div>
+                  <div class="ferret-right-inner-eye-2"></div>
+                </div>
+              </div>
+
+              <div class="ferret-nose">
+                <div class="ferret-nose-inner-1"></div>
+                <div class="ferret-nose-inner-2"></div>
+                <div class="ferret-nose-inner-3"></div>
+                <div class="ferret-mouth">
+                  <div class="ferret-mouth-inner"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <p>© Modular Manul - Ticking Room</p>
+    </footer>
+  </body>
+</html>

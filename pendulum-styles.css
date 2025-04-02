@@ -1,0 +1,442 @@
+/* Ensure all elements inside the clock, including pseudo-elements, are positioned absolutely */
+.clock *,
+.clock *::before,
+.clock *::after {
+  position: absolute;
+}
+
+.clock {
+  /* Main clock container with scaling effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 5%;
+  color: var(--clock-secondary-color);
+  transition: transform 2s ease;
+  transform: translateZ(var(--z-translation));
+}
+
+.clock:hover {
+  transform: translateZ(0px);
+}
+
+.finial {
+  /* Decorative top part of the clock */
+  border-top: 2vh solid var(--clock-secondary-color);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-bottom: 20vh solid var(--clock-secondary-color);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  top: -440px;
+}
+
+.finial::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: var(--striped-color);
+  border: 5px solid var(--clock-secondary-color);
+  border-radius: 50%;
+  left: -10px;
+  z-index: 1;
+}
+
+.finial::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  background: var(--striped-color);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-left: 10px solid var(--clock-secondary-color);
+  border-right: 10px solid var(--clock-secondary-color);
+  border-bottom: 10px solid var(--clock-secondary-color);
+  top: 70px;
+  left: -25px;
+}
+
+.crown .top {
+  /* Crown of the clock with animations */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: -3px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--clock-primary-color);
+  border-top: 20px solid var(--clock-secondary-color);
+  top: -260px;
+}
+
+.crown .top .triangle-left {
+  font-size: 3rem;
+  font-weight: 900;
+  top: 12%;
+  left: 30%;
+  transform: rotate(-50deg);
+  animation: triangle-clockwise 2s linear infinite;
+}
+
+.crown .top .triangle-right {
+  font-size: 3rem;
+  font-weight: 900;
+  top: 10%;
+  right: 30%;
+  transform: rotate(50deg);
+  animation: triangle-anti-clockwise 2s linear infinite;
+}
+
+@keyframes triangle-clockwise {
+  0% {
+    transform: rotate(-50deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(-50deg);
+  }
+}
+
+@keyframes triangle-anti-clockwise {
+  0% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+  100% {
+    transform: rotate(50deg);
+  }
+}
+
+.crown .top h1 {
+  font-family: 'Astloch', system-ui;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+}
+
+.crown .top::before {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background: var(--clock-primary-color);
+  border-top: 20px solid var(--clock-secondary-color);
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  top: 30px;
+  left: -120px;
+  z-index: -1;
+}
+
+.crown .top::after {
+  content: '';
+  width: 200px;
+  height: 150px;
+  background: var(--clock-primary-color);
+  border-top: 20px solid var(--clock-secondary-color);
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  top: 30px;
+  right: -120px;
+  z-index: -1;
+}
+
+.crown .bottom {
+  /* Crown of the clock with animations */
+  width: 500px;
+  height: 150px;
+  background: var(--clock-primary-color);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top: 30px solid var(--clock-secondary-color);
+  border-left: 20px solid var(--clock-secondary-color);
+  border-right: 20px solid var(--clock-secondary-color);
+  border-bottom: 5px solid var(--clock-secondary-color);
+  top: -140px;
+}
+
+.head,
+.crown,
+.frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.frame .outer {
+  /* Frame of the clock with layered design */
+  width: 300px;
+  height: 100px;
+  background-color: var(--clock-secondary-color);
+}
+
+.frame .outer::before {
+  content: '';
+  width: 300px;
+
+  border-top: var(--octagon-border) solid transparent;
+  border-bottom: var(--octagon-border) solid var(--clock-secondary-color);
+  border-left: var(--octagon-border) solid transparent;
+  border-right: var(--octagon-border) solid transparent;
+  top: -200px;
+}
+
+.frame .outer::after {
+  content: '';
+  width: 300px;
+  border-top: var(--octagon-border) solid var(--clock-secondary-color);
+  border-bottom: var(--octagon-border) solid transparent;
+  border-left: var(--octagon-border) solid transparent;
+  border-right: var(--octagon-border) solid transparent;
+  bottom: -200px;
+}
+
+.frame .inner {
+  /* Frame of the clock with layered design */
+  width: 300px;
+  height: 100px;
+  background-color: var(--clock-primary-color);
+  transform: scale(0.8);
+}
+
+.frame .inner::before {
+  content: '';
+  width: 300px;
+  border-top: var(--octagon-border) solid transparent;
+  border-bottom: var(--octagon-border) solid var(--clock-primary-color);
+  border-left: var(--octagon-border) solid transparent;
+  border-right: var(--octagon-border) solid transparent;
+  top: -200px;
+}
+
+.frame .inner::after {
+  content: '';
+  width: 300px;
+  border-top: var(--octagon-border) solid var(--clock-primary-color);
+  border-bottom: var(--octagon-border) solid transparent;
+  border-left: var(--octagon-border) solid transparent;
+  border-right: var(--octagon-border) solid transparent;
+  bottom: -200px;
+}
+
+.face {
+  /* Clock face with hour marks and hands */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 8px double var(--clock-secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  letter-spacing: -3px;
+  font-size: x-large;
+  color: var(--clock-secondary-color);
+  z-index: 2;
+}
+
+.face .inner {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--clock-secondary-color);
+  background: var(--clock-primary-color);
+}
+
+.face .hour-mark-twelve {
+  top: -22%;
+  left: 42%;
+  z-index: 1;
+}
+
+.face .hour-mark-three {
+  right: -20%;
+  z-index: 1;
+  transform: rotate(90deg);
+}
+
+.face .hour-mark-six {
+  bottom: -22%;
+  left: 44%;
+  z-index: 1;
+}
+
+.face .hour-mark-nine {
+  left: -20%;
+  z-index: 1;
+  transform: rotate(-90deg);
+}
+
+.face .hour-hand {
+  width: 5px;
+  height: 45px;
+  background-color: var(--clock-secondary-color);
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  transform: rotate(180deg);
+  animation: clockwise 7200s linear infinite;
+  z-index: 2;
+}
+
+.face .minute-hand {
+  width: 3px;
+  height: 65px;
+  background-color: var(--clock-secondary-color);
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  transform: rotate(180deg);
+  animation: clockwise 600s linear infinite;
+  z-index: 2;
+}
+
+.face .second-hand {
+  width: 2px;
+  height: 85px;
+  background-color: var(--clock-secondary-color);
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  transform: rotate(180deg);
+  animation: clockwise 10s linear infinite;
+  z-index: 2;
+}
+
+@keyframes clockwise {
+  100% {
+    transform: rotate(540deg);
+  }
+}
+
+.pendulum {
+  /* Pendulum with swinging animation */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: top left;
+  animation: pendulum 1s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.pendulum .rod {
+  width: 10px;
+  height: 140px;
+  background-color: var(--clock-secondary-color);
+  top: 130px;
+}
+
+.pendulum .weight {
+  width: 80px;
+  height: 80px;
+  background: repeating-radial-gradient(
+    circle,
+    var(--clock-primary-color),
+    var(--clock-primary-color) 5%,
+    var(--clock-secondary-color) 5%,
+    var(--clock-secondary-color) 10%
+  );
+  border-radius: 50%;
+  border: 5px solid var(--clock-secondary-color);
+  top: 270px;
+}
+
+@keyframes pendulum {
+  0% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
+.body {
+  /* Main body of the clock */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel.left,
+.panel.right {
+  /* Side panels of the clock */
+  width: 50px;
+  height: 600px;
+  top: 60%;
+  background: var(--striped-color);
+  border-bottom-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  border-bottom: 30px solid var(--clock-secondary-color);
+  border-left: 10px solid var(--clock-secondary-color);
+  border-right: 10px solid var(--clock-secondary-color);
+  z-index: 1;
+}
+
+.panel.left {
+  left: 0;
+  transform: translateX(-300%);
+}
+
+.panel.right {
+  right: 0;
+  transform: translateX(300%);
+}
+
+.back {
+  /* Back and base of the clock */
+  width: 300px;
+  height: 550px;
+  bottom: 0;
+  transform: translateY(100%);
+  background: var(--clock-primary-color);
+}
+
+.base.back {
+  /* Back and base of the clock */
+  width: 420px;
+  height: 100px;
+  bottom: 0;
+  transform: translateY(550%);
+  background: var(--clock-primary-color);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+  border-top: 5px solid var(--clock-secondary-color);
+  border-bottom: 30px solid var(--clock-secondary-color);
+  border-left: 20px solid var(--clock-secondary-color);
+  border-right: 20px solid var(--clock-secondary-color);
+  z-index: 1;
+}
+
+.base.front {
+  /* Back and base of the clock */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 260px;
+  height: 160px;
+  background: var(--clock-primary-color);
+  border-radius: 20%;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-top: 5px solid var(--clock-secondary-color);
+  border-bottom: 5px solid var(--clock-secondary-color);
+  border-left: 20px solid var(--clock-secondary-color);
+  border-right: 20px solid var(--clock-secondary-color);
+  bottom: 0;
+  transform: translateY(343%);
+  z-index: 2;
+}
+
+.base.front p {
+  margin-right: 10px;
+  font-family: 'Astloch', system-ui;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+}
